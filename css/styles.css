@@ -132,6 +132,8 @@ img {
 }
 
 .site-nav-link {
+  position: relative;
+
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -150,6 +152,19 @@ img {
 /* активна сторінка */
 .site-nav-link.current {
 color: var(--accent-cl);
+}
+
+.site-nav-link.current:after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--accent-cl);
+  border-radius: 2px;
 }
 
 /* контакти */
@@ -294,10 +309,6 @@ color: var(--accent-cl);
 }
 
 /* заголовок секцій direction & team */
-.direction {
-  padding-top: 0px;
-}
-
 .direction-title,
 .team-title,
 .clients-title {
@@ -311,12 +322,40 @@ color: var(--accent-cl);
 }
 
 /* секція direction / секція чем мы занимаемся  */
+.direction {
+  padding-top: 0px;
+}
+
 .direction-list {
   display: flex;
 }
 
 .direction-item:not(:last-child) {
   margin-right: 30px;
+}
+
+.direction-item-inner {
+  position: relative;
+}
+
+.direction-desc {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--main-bg-cl);
+  
+  background: rgba(47, 48, 58, 0.8);
 }
 
 /* секція team / наша команда */
