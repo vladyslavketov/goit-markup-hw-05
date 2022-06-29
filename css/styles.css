@@ -104,9 +104,7 @@ img {
   font-size: 26px;
   line-height: 1.19;
 
-  transition-property: color;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f)
+  transition: color var(--transition-d) var(--transition-t-f);
 }
 
 .logo:hover,
@@ -154,9 +152,7 @@ img {
   letter-spacing: 0.02em;
   color: var(--secondary-cl);
 
-  transition-property: color;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: color var(--transition-d) var(--transition-t-f);
 }
 
 .site-nav-link:hover,
@@ -203,9 +199,7 @@ img {
   letter-spacing: 0.02em;
   color: var(--main-cl);
 
-  transition-property: background-color;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: background-color var(--transition-d) var(--transition-t-f);
 }
 
 .header-contacts-link:hover,
@@ -277,9 +271,7 @@ img {
   border-radius: 4px;
   border-width: 0px;
 
-  transition-property: background-color;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: background-color var(--transition-d) var(--transition-t-f);
 }
 
 .hero-btn:hover,
@@ -353,17 +345,6 @@ img {
   position: relative;
 }
 
-.direction-item-inner::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-
-  width: 100%;
-  height: 70px;
-  background: var(--direction-overlay-cl)
-}
-
 .direction-desc {
   position: absolute;
   left: 0;
@@ -380,6 +361,8 @@ img {
   text-align: center;
   text-transform: uppercase;
   color: var(--main-bg-cl);
+
+  background: var(--direction-overlay-cl)
 }
 
 /* секція team / наша команда */
@@ -452,9 +435,9 @@ img {
 
   color: var(--socials-cl);
 
-  transition-property: color, background-color, border-radius;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: color var(--transition-d) var(--transition-t-f), 
+    background-color var(--transition-d) var(--transition-t-f),
+    border-radius var(--transition-d) var(--transition-t-f);
 }
 
 .team-socials-link:hover,
@@ -495,9 +478,8 @@ img {
   border: 1px solid var(--socials-cl);
   border-radius: 4px;
 
-  transition-property: color, border;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: color var(--transition-d) var(--transition-t-f), 
+    border var(--transition-d) var(--transition-t-f);
 }
 
 .clients-link:hover,
@@ -537,9 +519,7 @@ img {
   font-style: normal;
   color: rgba(255, 255, 255, 0.6);
 
-  transition-property: color;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: color var(--transition-d) var(--transition-t-f);
 }
 
 .footer-contacts-link:hover,
@@ -583,9 +563,8 @@ img {
   background-color: var(--footer-icon-bg-cl);
   border-radius: 50px;
 
-  transition-property: color, background-color;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: color var(--transition-d) var(--transition-t-f),
+    background-color var(--transition-d) var(--transition-t-f);
 }
 
 .footer-socials-link:hover,
@@ -600,12 +579,7 @@ img {
 }
 /* блок footer (end) */
 
-.backdrop.is-hidden{
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
+/* modal (start) */
 .backdrop {
   position: fixed;
   top: 0;
@@ -615,18 +589,33 @@ img {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.2);
+
+  transition: transform var(--transition-d) var(--transition-t-f);
+  opacity: 1;
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  
   width: 528px;
   height: 581px;
 
   background-color: var(--main-bg-cl);
+
+  transform: translate(-50%, -50%) scaleX(1);
+  transition: transform var(--transition-d) var(--transition-t-f);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scaleX(1.2);
 }
 
 .btn-modal-close {
@@ -645,11 +634,14 @@ img {
   background: var(--main-bg-cl);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+
+  transition: transform var(--transition-d) var(--transition-t-f);
 }
 
 .icon-modal-close {
   fill: var(--dark-lg-cl);
 }
+/* modal (end) */
 
 /* блок main - portfolio.hmtl (start) */
 /* секція portfolio / портфоліо */
@@ -677,9 +669,9 @@ img {
   border-radius: 4px;
   border-width: 0;
 
-  transition-property: color, background-color, box-shadow, border-radius;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: color var(--transition-d) var(--transition-t-f),
+    background-color var(--transition-d) var(--transition-t-f),
+    box-shadow var(--transition-d) var(--transition-t-f);
 }
 
 .filter-btn:hover,
@@ -691,7 +683,6 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
     0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
 }
 
 /* список проектів */
@@ -717,9 +708,7 @@ img {
 .project-link {
   display: block;
 
-  transition-property: box-shadow;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: box-shadow var(--transition-d) var(--transition-t-f);
 }
 
 .project-link:hover,
@@ -732,26 +721,6 @@ img {
 .project-img-wrap {
   position: relative;
   overflow: hidden;
-}
-
-.project-img-wrap::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background-color: var(--project-overlay-cl);
-  transform: translateY(100%);
-  transition-property: transform;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
-}
-
-.project-link:hover .project-img-wrap::before {
-  transform: translateY(0);
 }
 
 .project-desc {
@@ -770,10 +739,9 @@ img {
   line-height: 1.56;
   color: var(--main-bg-cl);
 
+  background-color: var(--project-overlay-cl);
   transform: translateY(100%);
-  transition-property: transform;
-  transition-duration: var(--transition-d);
-  transition-timing-function: var(--transition-t-f);
+  transition: transform var(--transition-d) var(--transition-t-f);
 }
 
 .project-link:hover .project-desc {
