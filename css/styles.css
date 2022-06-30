@@ -590,7 +590,9 @@ img {
 
   background-color: rgba(0, 0, 0, 0.2);
 
-  transition: transform var(--transition-d) var(--transition-t-f);
+  transition: transform var(--transition-d) var(--transition-t-f),
+    opacity var(--transition-d) var(--transition-t-f),
+    visibility var(--transition-d) var(--transition-t-f);
   opacity: 1;
 }
 
@@ -635,7 +637,6 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
-  transition: transform var(--transition-d) var(--transition-t-f);
 }
 
 .icon-modal-close {
